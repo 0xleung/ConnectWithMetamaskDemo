@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Button,
   SafeAreaView,
@@ -44,10 +44,10 @@ const App = () => {
 
   const [inintUrl, setInintUrl] = useState('');
 
-  const onAppWokUp = useCallback(event => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const onAppWokUp = (event: {url: string}) => {
     setInintUrl(event.url);
-    return event.remove();
-  }, []);
+  };
 
   useEffect(() => {
     Linking.getInitialURL().then(url => {
@@ -56,7 +56,10 @@ const App = () => {
       }
     });
     Linking.addEventListener('url', onAppWokUp);
-  }, [onAppWokUp]);
+    return () => {
+      Linking.removeEventListener('url', onAppWokUp);
+    };
+  }, []);
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
