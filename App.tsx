@@ -72,7 +72,7 @@ const App = () => {
             onPress={() => {
               console.log('hello');
               Linking.openURL(
-                'https://metamask.app.link/dapp/www.jobinleung.me/sign',
+                'https://metamask.app.link/dapp/www.0xleung.com/sign',
               );
             }}>
             Sign
