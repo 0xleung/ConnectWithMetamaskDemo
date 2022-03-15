@@ -44,8 +44,8 @@ const App = () => {
 
   const [inintUrl, setInintUrl] = useState('');
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const onAppWokUp = (event: {url: string}) => {
+    console.log('uuuuurl', event.url);
     setInintUrl(event.url);
   };
 
@@ -72,7 +72,7 @@ const App = () => {
             onPress={() => {
               console.log('hello');
               Linking.openURL(
-                'https://metamask.app.link/dapp/www.0xleung.com/sign',
+                'https://metamask.app.link/dapp/sign-0xleung-com.pages.dev',
               );
             }}>
             Sign
